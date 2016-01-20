@@ -98,7 +98,7 @@ class mod_mediagallery_gallery_form extends moodleform {
         $mform->addElement('select', 'mode', get_string('mode', 'mod_mediagallery'), $opts);
         $mform->addHelpButton('mode', 'mode', 'mediagallery');
 
-        if ($mg->colltype != 'instructor') {
+        if ($mg->colltype == 'instructor') {
             $mform->addElement('checkbox', 'contributable', get_string('contributable', 'mod_mediagallery'));
             $mform->addHelpButton('contributable', 'contributable', 'mediagallery');
         }
