@@ -45,13 +45,30 @@ class export_form extends \moodleform {
 
         $mform->addElement('checkbox', 'completegallery', get_string('completegallery', 'mediagallery'));
 
-        foreach ($gallery->get_items() as $item) {
+        // START UCLA MOD: CCLE-5608
+        // Added thumbnails for individual images, because not all have captions.
+        /*foreach ($gallery->get_items() as $item) {
             if (!empty($item->externalurl)) {
                 continue;
             }
             $mform->addElement('checkbox', 'item_'.$item->id, $item->caption);
             $mform->disabledIf('item_'.$item->id, 'completegallery', 'checked');
+        }*/
+        $items = $gallery->get_items();
+        $count = count($items);
+        foreach ($items as $item) {
+            if (!empty($item->externalurl)) {
+                continue;
+            }
+            $line = array();
+            if ($count <= 50) {
+                $line[] =& $mform->createElement('html', "<img class='gthumbnail' src='{$item->get_image_url(true)}'>");
+            }
+            $line[] =& $mform->createElement('checkbox', 'item_'.$item->id, $item->caption);
+            $mform->addGroup($line, 'line', '', array(' '), false);
+            $mform->disabledIf('item_'.$item->id, 'completegallery', 'checked');
         }
+        // END UCLA MOD: CCLE-5608
 
         $mform->addElement('hidden', 'g', $gallery->id);
         $mform->setType('g', PARAM_INT);
