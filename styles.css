@@ -85,10 +85,6 @@
     display: inline-block;
     /* START UCLA MOD: CCLE-5609 */
     padding-left: 5px;
-}
-
-.path-mod-mediagallery .moodle-actionmenu .menu {
-    display: inline;
     /* END UCLA MOD: CCLE-5609 */
 }
 
