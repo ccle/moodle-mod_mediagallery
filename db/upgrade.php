@@ -444,5 +444,15 @@ function xmldb_mediagallery_upgrade($oldversion) {
         upgrade_mod_savepoint(true, 2015082600, 'mediagallery');
     }
 
+    if($oldversion < 2016012500) {
+        $table = new xmldb_table('mediagallery_gallery');
+        $records = $DB->get_records($table, null, '', 'grid');
+        foreach($records as $record) {
+            $record->grid = true;
+            $DB->update_record($table, $record, true);
+        }
+        upgrade_mod_savepoint(true, 2016012500, 'mediagallery');
+    }
+
     return true;
 }
