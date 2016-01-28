@@ -444,14 +444,14 @@ function xmldb_mediagallery_upgrade($oldversion) {
         upgrade_mod_savepoint(true, 2015082600, 'mediagallery');
     }
 
-    if($oldversion < 2016012500) {
-        $table = new xmldb_table('mediagallery_gallery');
-        $records = $DB->get_records($table, null, '', 'grid');
+    if($oldversion < 2016012800) {
+        $records = $DB->get_recordset('mediagallery');
         foreach($records as $record) {
             $record->grid = true;
-            $DB->update_record($table, $record, true);
+            $DB->update_record('mediagallery', $record, true);
         }
-        upgrade_mod_savepoint(true, 2016012500, 'mediagallery');
+        $records->close();
+        upgrade_mod_savepoint(true, 2016012800, 'mediagallery');
     }
 
     return true;
