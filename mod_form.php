@@ -223,7 +223,7 @@ class mod_mediagallery_mod_form extends moodleform_mod {
     public function data_preprocessing(&$toform) {
         $toform['galleryviewoptions'] = array();
         $toform['galleryviewoptions']['carousel'] = isset($toform['carousel']) ? $toform['carousel'] : 1;
-        $toform['galleryviewoptions']['grid'] = isset($toform['grid']) ? $toform['grid'] : '';
+        $toform['galleryviewoptions']['grid'] = isset($toform['grid']) ? $toform['grid'] : 1;
 
         $toform['gallerytypeoptions'] = array();
         $toform['gallerytypeoptions']['focus'] = isset($toform['galleryfocus']) ? $toform['galleryfocus'] : \mod_mediagallery\base::TYPE_IMAGE;
