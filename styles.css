@@ -6,7 +6,9 @@
 .path-mod-mediagallery .gallery_items {
     width: 100%;
     float: left;
-    margin-bottom: 10px;
+    /* START UCLA MOD: CCLE-5609 */
+    margin-bottom: 50px;
+    /* END UCLA MOD: CCLE-5609 */
 }
 
 .path-mod-mediagallery .gallery_list .row {
@@ -71,6 +73,13 @@
 .path-mod-mediagallery .gallery_items .controls .moodle-actionmenu,
 .path-mod-mediagallery .gallery_list_item .controls .moodle-actionmenu {
     display: inline-block;
+    /* START UCLA MOD: CCLE-5609 */
+    padding-left: 5px;
+}
+
+.path-mod-mediagallery .moodle-actionmenu .menu {
+    display: inline;
+    /* END UCLA MOD: CCLE-5609 */
 }
 
 .path-mod-mediagallery div.grid_item {
@@ -700,7 +709,9 @@ body.mediaboxactive .gallery .mediaplugin object {
     font-size: 16px;
     font-weight: 400;
     -webkit-font-smoothing: subpixel-antialiased;
-    text-transform: uppercase;
+    // START UCLA MOD: CCLE-5610
+    //text-transform: uppercase;
+    // END UCLA MOD: CCLE-5610
 }
 
 .path-mod-mediagallery .mgfa,
