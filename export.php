@@ -44,6 +44,8 @@ $PAGE->set_url($pageurl);
 $PAGE->set_title(format_string($mediagallery->name));
 $PAGE->set_heading(format_string($course->fullname));
 $PAGE->set_context($context);
+$PAGE->requires->jquery();
+$PAGE->requires->js('/mod/mediagallery/jquery/clickableimage/clickableimage.js');
 
 $navnode = $PAGE->navigation->find($cm->id, navigation_node::TYPE_ACTIVITY);
 if (empty($navnode)) {

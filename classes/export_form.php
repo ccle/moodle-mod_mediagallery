@@ -62,7 +62,8 @@ class export_form extends \moodleform {
             }
             $line = array();
             if ($count <= 50) {
-                $line[] =& $mform->createElement('html', "<img class='gthumbnail' src='{$item->get_image_url(true)}'>");
+                // separate javascript into separate file, and complete the toggle
+                $line[] =& $mform->createElement('html', "<img id='id_image_{$item->id}' class='gthumbnail' src='{$item->get_image_url(true)}'>");
             }
             $line[] =& $mform->createElement('checkbox', 'item_'.$item->id, $item->caption);
             $mform->addGroup($line, 'line', '', array(' '), false);

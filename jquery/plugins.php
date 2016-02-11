@@ -28,4 +28,8 @@ $plugins = array(
             'jcarousel/jquery.jcarousel.v2.min.js',
         )
     ),
+    'clickableimage' => array('files' => array(
+            'clickableimage/clickableimage.js',
+        )
+    ),
 );
