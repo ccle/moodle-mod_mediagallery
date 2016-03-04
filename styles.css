@@ -48,15 +48,31 @@
 .path-mod-mediagallery .item .title {
     margin-left: 5px;
     float: left;
-    overflow: hidden;
-    max-width: 170px;
+    /*START UCLA MOD: CCLE-5438*/
+    max-width: 100px;
+    /*END UCLA MOD: CCLE-5438*/
     word-break: break-word;
 }
 
 .path-mod-mediagallery .gallery_list_item .title h6,
 .path-mod-mediagallery .item .title h6 {
+    /* START UCLA MOD: CCLE-5438 */
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100px;
+    /* END UCLA MOD: CCLE-5438 */
     margin-top: 0px;
     margin-bottom: 0px;
+}
+
+.path-mod-mediagallery .gallery_list_item .title h6:hover,
+.path-mod-mediagallery .item .title h6:hover {
+    /* START UCLA MOD: CCLE-5438 */
+    white-space: initial;
+    overflow: visible;
+    word-wrap: break-word;
+    /* END UCLA MOD: CCLE-5438 */
 }
 
 .path-mod-mediagallery .gallery_list_item .controls,
