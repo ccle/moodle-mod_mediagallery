@@ -245,6 +245,18 @@ class gallery extends base {
                     'files' => $files,
                     'gallery' => $this,
                 );
+
+                // START UCLA MOD: CCLE-5439 - Accessibility of "tooltip" on mouseover
+                // Replacing empty caption with image filename/video url for
+                // all items in gallery on mouseover for better user experience.
+                if (empty($record->caption)) {
+                    if (!empty($filelist[$record->id])) {
+                        $record->caption =  $filelist[$record->id]['item']->get_filename();
+                    } else if (!empty($record->externalurl)) {
+                        $record->caption = $record->externalurl;
+                    }
+                }
+                // END UCLA MOD: CCLE-5439
                 $items[$record->id] = new item($record, $options);
             }
         }
