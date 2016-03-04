@@ -48,16 +48,34 @@
 .path-mod-mediagallery .item .title {
     margin-left: 5px;
     float: left;
-    overflow: hidden;
-    max-width: 170px;
+    /* START UCLA MOD: CCLE-5438 - Edit gallery alignment issues */
+    /*overflow: hidden;*/
+    /*max-width: 170px;*/
+    max-width: 100px;
+    /* END UCLA MOD: CCLE-5438 */
     word-break: break-word;
 }
 
 .path-mod-mediagallery .gallery_list_item .title h6,
 .path-mod-mediagallery .item .title h6 {
+    /* START UCLA MOD: CCLE-5438 - Edit gallery alignment issues */
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100px;
+    /* END UCLA MOD: CCLE-5438 */
     margin-top: 0px;
     margin-bottom: 0px;
 }
+
+/* START UCLA MOD: CCLE-5438 - Edit gallery alignment issues */
+.path-mod-mediagallery .gallery_list_item .title h6:hover,
+.path-mod-mediagallery .item .title h6:hover {
+    white-space: initial;
+    overflow: visible;
+    word-wrap: break-word;
+}
+/* END UCLA MOD: CCLE-5438 */
 
 .path-mod-mediagallery .gallery_list_item .controls,
 .path-mod-mediagallery .item .controls {
