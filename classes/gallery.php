@@ -426,7 +426,10 @@ class gallery extends base {
             $userid = $USER->id;
         }
 
-        if ($userid == $this->record->userid) {
+        // START UCLA MOD: CCLE-5440 - Allowing super users to access the gallery edit menu option.
+        //if ($userid == $this->record->userid) {
+        if ($userid == $this->record->userid || has_capability('mod/mediagallery:manage', $this->get_context(), $userid)) {
+        // END UCLA MOD: CCLE-5440
             return true;
         }
 
